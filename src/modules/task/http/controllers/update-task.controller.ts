@@ -20,6 +20,8 @@ export class UpdateTaskController {
     try {
       // Valida o corpo da requisição para atualizar a tarefa
       const input = updateTaskValidated.parse(req.body);
+      console.log({input,b: req.body});
+      
       // Executa a lógica de atualização da tarefa
       const task = await this.useCase.execute(req.params.id, input);
       return res.json(task);
