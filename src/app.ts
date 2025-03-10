@@ -1,7 +1,7 @@
 
 import express, { Request, Response } from 'express';
 import router from './modules/task/http/routes';
-
+import cors from "cors";
 
 const app = express();
 
@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 // Rota GET para a raiz
-app.use('/api/v1', router);
+app.use('/api/v1',cors({origin: "*"}), router);
 
 // Defina a porta onde o servidor Express vai rodar
 const port = 3000;
