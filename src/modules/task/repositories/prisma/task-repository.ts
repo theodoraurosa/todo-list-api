@@ -38,4 +38,10 @@ export class TaskPrismaRepository implements ITaskRepository {
         lastPage,
         perPage: limit, };
     }
+
+    
+    async delete(id: string): Promise<void> {
+      await prisma.task.delete({ where: { id } });
+    }
 }
+
