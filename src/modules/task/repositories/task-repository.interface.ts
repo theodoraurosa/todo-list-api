@@ -9,5 +9,6 @@ export interface ITaskRepository {
     findById(id: string): Promise<Task | null>;
     findAll(params: PaginationInput): Promise<PaginationOutput>;
     delete(id: string): Promise<void>;
+    update(data: Prisma.TaskUpdateInput): Promise<Task>;
    
   }

@@ -43,5 +43,13 @@ export class TaskPrismaRepository implements ITaskRepository {
     async delete(id: string): Promise<void> {
       await prisma.task.delete({ where: { id } });
     }
+
+
+    async update(data: Prisma.TaskUpdateInput): Promise<Task> {
+      return await prisma.task.update({
+        where: { id: String(data.id) },
+        data,
+      });
+    }
 }
 
